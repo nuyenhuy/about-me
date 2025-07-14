@@ -3,11 +3,12 @@ import {NzFooterComponent} from "ng-zorro-antd/layout";
 
 @Component({
   selector: 'app-footer',
-    imports: [
-        NzFooterComponent
-    ],
+  imports: [
+    NzFooterComponent
+  ],
   templateUrl: './footer.html',
-  styleUrl: './footer.scss'
+  styleUrl: './footer.scss',
+  standalone: true
 })
 export class Footer {
 

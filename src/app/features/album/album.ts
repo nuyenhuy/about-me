@@ -51,6 +51,7 @@ interface Data extends User {
   ],
   templateUrl: './album.html',
   styleUrl: './album.scss',
+  standalone: true
 })
 export class Album  implements OnInit {
   protected _albumList: BehaviorSubject<NzUploadFile[]> = new BehaviorSubject<NzUploadFile[]>([]);

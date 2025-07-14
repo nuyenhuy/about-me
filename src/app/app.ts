@@ -14,7 +14,7 @@ import {Album} from './features/album/album';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NzLayoutComponent, NzSiderComponent, NzIconDirective, NzMenuItemComponent, NzSubMenuComponent, NzMenuDirective, NzHeaderComponent, NzContentComponent, NzBreadCrumbComponent, NzBreadCrumbItemComponent, NzFooterComponent, NgOptimizedImage, NzSliderComponent, NzButtonComponent, Header, Footer, Album, RouterLink],
+  imports: [RouterOutlet, NzLayoutComponent, NzSiderComponent, NzIconDirective, NzMenuItemComponent, NzSubMenuComponent, NzMenuDirective, NzHeaderComponent, NzContentComponent, NzBreadCrumbComponent, NzBreadCrumbItemComponent, NzFooterComponent, NgOptimizedImage, NzSliderComponent, NzButtonComponent, Header, Footer, RouterLink],
   templateUrl: './app.html',
   standalone: true,
   styleUrl: './app.scss'
