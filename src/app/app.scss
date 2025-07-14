@@ -1,0 +1,111 @@
+.h-100vh {
+  height:100vh;
+}
+
+.drawer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
+}
+
+.header {
+  height: 20%;
+}
+
+.topbar-background-img {
+  height: 50px;
+  background-image: url("/assets/imgs/hearts-bg.jpg");
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: center;
+}
+
+.topbar-background-color {
+  height: 60px;
+  background-color: rgb(255, 255, 255);
+}
+
+.body {
+  height: 75%;
+}
+
+.divider {
+  height: 2px;
+  background-color: white;
+}
+
+.footer {
+  height: 5%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.trigger:hover {
+  color: #1890ff;
+}
+
+.logo {
+  margin-top: 10px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+nz-header {
+  background: #fff;
+  padding: 0;
+}
+
+nz-content {
+  margin: 0 16px;
+}
+
+nz-breadcrumb {
+  margin: 16px 0;
+}
+
+.inner-content {
+  padding: 24px;
+  background: #fff;
+  min-height: 360px;
+}
+
+nz-footer {
+  text-align: center;
+}
+
+.icon {
+  height: 50px;
+  width: 50px;
+  background: #1890ff;
+}
+
+.avatar-collapsed {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.avatar-uncollapsed {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+.center {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  align-content: center;
+}

@@ -1,0 +1,62 @@
+<nz-upload
+  nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+  nzListType="picture-card"
+  [nzFileList]="(_albumList | async)"
+  [nzShowButton]="true"
+  (nzChange)="handleChange($event)"
+  [nzPreview]="handlePreview"
+>
+  <div>
+    <nz-icon nzType="plus" />
+    <div style="margin-top: 8px">Upload</div>
+  </div>
+</nz-upload>
+<nz-modal
+  [nzVisible]="previewVisible"
+  [nzContent]="modalContent"
+  [nzFooter]="null"
+  [nzWidth]="'70%'"
+  (nzOnCancel)="previewVisible = false"
+>
+  <ng-template #modalContent>
+    <div class="d-flex">
+      <div class="pt-1 pb-1" style="width: 50%">
+        <img [src]="previewImage" style="width: 100%"/>
+      </div>
+      <div class="bg-white" style="width: 50%">
+        <div class="d-flex flex-column" style="height: 100%">
+          <div style="height: 90%">
+            @if (data.length) {
+              <nz-list [nzDataSource]="data" [nzRenderItem]="item" nzItemLayout="horizontal">
+                <ng-template #item let-item>
+                  <nz-comment [nzAuthor]="item.author" [nzDatetime]="item.displayTime">
+                    <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]="item.avatar"></nz-avatar>
+                    <nz-comment-content>
+                      <p>{{ item.content }}</p>
+                    </nz-comment-content>
+                  </nz-comment>
+                </ng-template>
+              </nz-list>
+            }
+          </div>
+          <div class="p-1">
+            <nz-comment>
+              <nz-avatar class="mt-2" nz-comment-avatar nzIcon="user" [nzSrc]="user.avatar"></nz-avatar>
+              <nz-comment-content>
+                <nz-form-item>
+                  <div class="textarea-wrapper">
+                    <textarea [(ngModel)]="inputValue" nz-input rows="2"></textarea>
+                    <button class="inside-button" nz-button [nzSize]="'small'" [nzLoading]="submitting" (click)="handleSubmit()">
+                      <nz-icon nzType="send" nzTheme="outline" />
+                      Post
+                    </button>
+                  </div>
+                </nz-form-item>
+              </nz-comment-content>
+            </nz-comment>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</nz-modal>

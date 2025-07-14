@@ -1,0 +1,19 @@
+.avatar-collapsed {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.avatar-uncollapsed {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+.header {
+  height: 20vh;
+  background-image: url("/assets/imgs/hearts-bg.jpg");
+  background-repeat: repeat;
+  background-size: cover;
+  background-position: center;
+}

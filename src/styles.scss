@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+.divider {
+  height: 2px;
+  background-color: black;
+}
+
+.vertical-divider {
+  width: 5px;
+  height: 100%;
+  transform: rotate(90deg);
+  transform-origin: left top;
+  background-color: #e61717;
+  border: none;
+}
+
+.ant-modal-body {
+  padding: 0 !important;
+  font-size: 14px;
+  line-height: 1.5715;
+  background-color: black;
+  word-wrap: break-word;
+}
+
+.bg-white {
+  background-color: white;
+}

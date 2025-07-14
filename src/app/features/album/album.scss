@@ -1,0 +1,54 @@
+:host ::ng-deep .avatar-uploader > .ant-upload {
+  width: 500px;
+  height: 500px;
+}
+
+::ng-deep .ant-upload-list-picture-card-container {
+  width: 180px;
+  height: 180px;
+}
+
+.bg-black {
+  background-color: black;
+}
+
+textarea {
+  width: 100%;
+  border: 1px solid #D9D9D9 !important;
+  outline: none;
+  border-radius: 4px;
+  padding: 0.65rem 1rem;
+  overflow: hidden;
+  resize: none;
+  min-height: 1.5em;
+  line-height: 1.5em;
+}
+
+.textarea-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.textarea-wrapper textarea {
+  width: 100%;
+  border: 1px solid #D9D9D9;
+  outline: none;
+  border-radius: 4px;
+  padding: 0.65rem 3rem 0.65rem 1rem; /* chừa chỗ cho button bên phải */
+  resize: none;
+  line-height: 1.5em;
+  min-height: 1.5em;
+}
+
+.inside-button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background-color: #1890ff;
+  color: white;
+  padding: 1px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}

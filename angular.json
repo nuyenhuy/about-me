@@ -28,6 +28,8 @@
             ],
             "styles": [
               "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "node_modules/ng-zorro-antd/ng-zorro-antd.min.css"
             ]
           },
@@ -88,5 +90,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "f2e2d59f-11cc-4454-ae05-616f41bc9c1c"
   }
 }
