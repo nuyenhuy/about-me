@@ -7,10 +7,6 @@ export const routes: Routes = [
     redirectTo: 'album',
   },
   {
-    path: '**',
-    redirectTo: 'album',
-  },
-  {
     path: 'album',
     loadComponent: () => import("./features/album/album").then(m => m.Album)
   },
