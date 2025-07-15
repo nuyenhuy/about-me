@@ -2,6 +2,15 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'album',
+  },
+  {
+    path: '**',
+    redirectTo: 'album',
+  },
+  {
     path: 'album',
     loadComponent: () => import("./features/album/album").then(m => m.Album)
   },

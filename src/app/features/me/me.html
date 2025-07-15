@@ -1,22 +1,90 @@
-<div >
-  <h1 style="text-align: center; color: blue" nz-typography>About me: Work Experience at FSS</h1>
+<div class="hm-content mb-2">
+  <div>
+    <h1 style="text-align: center; color: black" nz-typography>About me: Work Experience at FSS</h1>
+  </div>
 </div>
 
-<div nz-row>
-  <div nz-col nzSpan="12" nzOrder="4">
-    <article nz-typography>
-      <h3>Implemented a real-time notification system</h3>
-      <p nz-typography>
-        Techstack Angular, SpringBoot, WebSocket, Kafka, Mongodb
-      </p>
+<div nz-row [nzGutter]="[10, 10]">
+  <div nz-col nzSpan="{{24/2}}" nzOrder="1">
+    <article nz-typography class="hm-content">
+      <h3 style="color: royalblue">Implemented a real-time notification system</h3>
+      <hr>
+      <p><strong><em>Techstack:</em></strong> Angular, SpringBoot, WebSocket, Kafka, Mongodb.</p>
+      <ol>
+        <li>
+          Developed a real-time notification module that allows users to receive live updates and
+          system alerts.
+        </li>
+        <li>
+          Integrated the notification module with another modules to trigger real time alerts based on
+          user actions
+        </li>
+        <li>
+          Enabled automatic data refresh upon network reconnection by integrating a Spring
+        </li>
+        <li>
+          WebSocket server that actively listens to kafka messages and pushes realtime updates
+          directly to the client.
+        </li>
+        <li>
+          Implemented unit test achieving approximately 80% coverage to ensure code quality and
+          reliability.
+        </li>
+      </ol>
     </article>
   </div>
-  <div nz-col nzSpan="12" nzOrder="3">
-    <article nz-typography>
-      <h3>Implemented a real-time notification system</h3>
-      <p nz-typography>
-        Techstack Angular, SpringBoot, WebSocket, Kafka, Mongodb
-      </p>
+  <div nz-col nzSpan="{{24/2}}" nzOrder="2">
+    <article nz-typography class="hm-content">
+      <h3 style="color: royalblue">Custom API Gateway Authorization and Role-Based UI Rendering</h3>
+      <hr>
+      <p><strong><em>Techstack:</em></strong> Lua, APISIX, Postgres, Angular, KendoUI, Kubernetes</p>
+      <ol>
+        <li>Implemented fine-grained permission checks by querying the database functions using
+          parameters such as username, API URL and HTTP method. The logic ensure that the user is
+          authorized to access to service, have permission for the request function and is allowed to
+          perform the specified action. Permissions are stored as bit flags, and the database function
+          uses bitwise operations to quickly check if the user has all the necessary access rights.
+        </li>
+        <li> Deployed customize Lua Auth Plugin to k8s.</li>
+        <li>Developed an API to load user context, including profile information, permission sets, and
+          dynamic menu structure based on access rights.
+        </li>
+      </ol>
+    </article>
+  </div>
+  <div nz-col nzSpan="{{24/2}}" nzOrder="2">
+    <article nz-typography class="hm-content">
+      <h3 style="color: royalblue">About me in Angular</h3>
+      <hr>
+      <p><strong><em>Techstack:</em></strong> Angular, Kendo UI, Rxjs </p>
+      <ol>
+        <li>Designed the Angular project layout and routing with Angular router to enable modular and
+          lazy-loaded navigation.
+        </li>
+        <li> Wrapped core Kendo UI controls to simplify developer usage, cutting development time
+          and code volume by up to 90%.</li>
+        <li>Built the frontend authorization flow. Call API to fetch user context including profile,
+          permissions, and menu tree. Managed permisison state on the client side. Developed
+          Angular directives to dynamically show or hide component UI based on user access rights..
+        </li>
+      </ol>
+    </article>
+  </div>
+
+  <div nz-col nzSpan="{{24/2}}" nzOrder="2">
+    <article nz-typography class="hm-content">
+      <h3 style="color: royalblue">Outsourcing for Bank</h3>
+      <hr>
+      <p><strong><em>Techstack:</em></strong>  Angular, Micro-FE, GraphQL, Spring boot </p>
+      <ol>
+        <li>Designed the Angular project layout and routing with Angular router to enable modular and
+          lazy-loaded navigation.
+        </li>
+        <li> Developed an independent micro frontend and integrated it into the shell application.</li>
+        <li>Developed the UI based on the client’s framework and strictly followed the provided design
+          specifications.
+        </li>
+      </ol>
     </article>
   </div>
 </div>
