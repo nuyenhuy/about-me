@@ -27,8 +27,8 @@ jobs:
       - name: Build Angular app
         run: npm run build  # đảm bảo script build có --base-href
 
-      - name: Copy index.html to 404.html (SPA fix)
-        run: cp dist/about-me/index.html dist/about-me/404.html
+      - name: Copy index.html to 404.html
+        run: cp dist/about-me/browser/index.html dist/about-me/browser/404.html
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
