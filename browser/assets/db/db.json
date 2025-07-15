@@ -1,0 +1,28 @@
+{
+  "albums": [
+    {
+      "uid": "-1",
+      "name": "image.png",
+      "status": "done",
+      "url": "http://localhost:4200/assets/imgs/me.jpg"
+    },
+    {
+      "uid": "-2",
+      "name": "image.png",
+      "status": "done",
+      "url": "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+    },
+    {
+      "uid": "-3",
+      "name": "image.png",
+      "status": "done",
+      "url": "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+    },
+    {
+      "uid": "-4",
+      "name": "image.png",
+      "status": "done",
+      "url": "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+    }
+  ]
+}
