@@ -34,4 +34,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages       # branch đích để deploy
-          folder: dist/about-me  # folder output sau build
+          folder: dist/about-me/browser  # folder output sau build
