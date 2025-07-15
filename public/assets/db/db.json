@@ -4,7 +4,7 @@
       "uid": "-1",
       "name": "image.png",
       "status": "done",
-      "url": "http://localhost:4200/assets/imgs/me.jpg"
+      "url": "/assets/imgs/me.jpg"
     },
     {
       "uid": "-2",
