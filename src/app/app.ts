@@ -20,6 +20,6 @@ import {Album} from './features/album/album';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('about-me');
-  constructor(public layoutService: LayoutService) {}
+  constructor() {
+  }
 }
