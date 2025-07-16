@@ -1,5 +1,10 @@
 <nz-layout class="h-100vh">
-  <nz-sider nzCollapsible [(nzCollapsed)]="layoutService.isCollapsed" [nzTrigger]="null">
+  <nz-sider
+    nzCollapsible
+    [(nzCollapsed)]="layoutService.isCollapsed"
+    [nzTrigger]="null"
+    [class.hidden-on-small]="layoutService.isCollapsed && (_isSmallScreen | async)"
+  >
     <div class="drawer">
       <div class="header d-flex justify-content-center align-items-center">
         <div class="logo mt-5 mb-3">

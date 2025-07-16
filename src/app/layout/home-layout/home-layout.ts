@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Footer} from '../footer/footer';
 import {Header} from '../header/header';
 import {NzButtonComponent} from 'ng-zorro-antd/button';
@@ -13,6 +13,10 @@ import {NzIconDirective} from 'ng-zorro-antd/icon';
 import {NzMenuDirective, NzMenuItemComponent} from 'ng-zorro-antd/menu';
 import {RouterLink, RouterOutlet} from '@angular/router';
 import {LayoutService} from '../../service/layout.service';
+import {BreakpointObserver} from '@angular/cdk/layout';
+import {BehaviorSubject} from 'rxjs';
+import {AsyncPipe} from '@angular/common';
+
 
 @Component({
   selector: 'app-home-layout',
@@ -29,11 +33,22 @@ import {LayoutService} from '../../service/layout.service';
     NzMenuItemComponent,
     NzSiderComponent,
     RouterLink,
-    RouterOutlet
+    RouterOutlet,
+    AsyncPipe
   ],
   templateUrl: './home-layout.html',
-  styleUrl: './home-layout.scss'
+  styleUrl: './home-layout.scss',
+  standalone: true
 })
-export class HomeLayout {
-  constructor(public layoutService: LayoutService) {}
+export class HomeLayout implements OnInit {
+  public _isSmallScreen: BehaviorSubject<any> = new BehaviorSubject<boolean>(false);
+
+  constructor(private breakpointObserver: BreakpointObserver, public layoutService: LayoutService) {
+  }
+
+  public ngOnInit() {
+    this.breakpointObserver.observe(['(max-width: 768px)']).subscribe(result => {
+      this._isSmallScreen.next(result.matches);
+    });
+  }
 }
