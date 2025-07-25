@@ -1,0 +1,1 @@
+import{jb as r}from"./chunk-ZUNX335B.js";var a=class e{static \u0275fac=function(t){return new(t||e)};static \u0275cmp=r({type:e,selectors:[["app-heart"]],decls:0,vars:0,template:function(t,o){},encapsulation:2})};export{a as Three};
