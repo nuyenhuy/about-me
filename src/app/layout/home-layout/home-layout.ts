@@ -16,6 +16,7 @@ import {LayoutService} from '../../service/layout.service';
 import {BreakpointObserver} from '@angular/cdk/layout';
 import {BehaviorSubject} from 'rxjs';
 import {AsyncPipe} from '@angular/common';
+import {Heart} from '../../3ds/heart/heart';
 
 
 @Component({
@@ -34,7 +35,8 @@ import {AsyncPipe} from '@angular/common';
     NzSiderComponent,
     RouterLink,
     RouterOutlet,
-    AsyncPipe
+    AsyncPipe,
+    Heart
   ],
   templateUrl: './home-layout.html',
   styleUrl: './home-layout.scss',

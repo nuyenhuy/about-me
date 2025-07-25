@@ -1,0 +1,64 @@
+name: Build & Deploy Angular App
+
+on:
+  push:
+    branches: [ "main" ]
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20.x] # bạn có thể thêm 22.x nếu cần
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Build Angular app
+        run: npm run build -- --configuration production --base-href=/about-me/
+
+      - name: Copy index.html to 404.html
+        run: cp dist/about-me/browser/index.html dist/about-me/browser/404.html
+
+      # (Tuỳ chọn) Test app
+      # - run: npm test
+
+  deploy-to-gh-pages:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Rebuild Angular app
+        run: npm run build -- --configuration production --base-href=/about-me/
+
+      - name: Copy index.html to 404.html
+        run: cp dist/about-me/browser/index.html dist/about-me/browser/404.html
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: dist/about-me/browser
