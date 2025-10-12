@@ -8,15 +8,16 @@
   <div
     nz-col [nzXs]="24"
     [nzSm]="24"
-    [nzMd]="12"
-    [nzLg]="12"
-    [nzXl]="12"
-    [nzXXl]="12"
+    [nzMd]="24"
+    [nzLg]="24"
+    [nzXl]="24"
+    [nzXXl]="24"
     nzOrder="1">
     <article nz-typography class="hm-content">
       <h3 style="color: royalblue">Implemented a real-time notification system</h3>
       <hr>
       <p><strong><em>Techstack:</em></strong> Angular, SpringBoot, WebSocket, Kafka, Mongodb.</p>
+      <h4>Overview</h4>
       <ol>
         <li>
           Developed a real-time notification module that allows users to receive live updates and
@@ -38,15 +39,28 @@
           reliability.
         </li>
       </ol>
+      <h4>Notable or remarkable</h4>
+      <ol>
+        <li>Multi instance problem</li>
+        <li>Note about kafka; notification have to satisfy two criteria like:</li>
+        <li>Broadcast mode: In topic X: Each instance has a unique groupId because we want each time send message to topic X, all instance have to be received</li>
+        <li>Share mode: In topic Y: All instance share the same groupId because we want each time send message to topic Y, only one instance was received</li>
+        <li>To configurate this, it relates to the concept is kafkaListenerContainerFactory. We have config, each time subscribe to topic, I have to specific two params are topic name and groupId of instances</li>
+        <li>In each usecase or bussincess, I have to think I should send boardcast or send share mode? </li>
+        <li>Notification module acts as a bridge between client and server. Any module want to send message to client. It have to send message to notification by kafka. And notification module will boardcast message to all its instances before send to client to guarantee message delivery to all connected clients</li>
+        <li>Understand clearly about short polling or long polling</li>
+        <li>Short polling: client ask server frequently</li>
+        <li>Long polling: client ask once and wait</li>
+      </ol>
     </article>
   </div>
   <div nz-col
-    [nzXs]="24"
-    [nzSm]="24"
-    [nzMd]="12"
-    [nzLg]="12"
-    [nzXl]="12"
-    [nzXXl]="12"
+       [nzXs]="24"
+       [nzSm]="24"
+       [nzMd]="24"
+       [nzLg]="24"
+       [nzXl]="24"
+       [nzXXl]="24"
     nzOrder="2"
   >
     <article nz-typography class="hm-content">
@@ -71,10 +85,10 @@
     nz-col
     [nzXs]="24"
     [nzSm]="24"
-    [nzMd]="12"
-    [nzLg]="12"
-    [nzXl]="12"
-    [nzXXl]="12"
+    [nzMd]="24"
+    [nzLg]="24"
+    [nzXl]="24"
+    [nzXXl]="24"
     nzOrder="2">
     <article nz-typography class="hm-content">
       <h3 style="color: royalblue">About me in Angular</h3>
@@ -98,10 +112,10 @@
     nz-col
     [nzXs]="24"
     [nzSm]="24"
-    [nzMd]="12"
-    [nzLg]="12"
-    [nzXl]="12"
-    [nzXXl]="12"
+    [nzMd]="24"
+    [nzLg]="24"
+    [nzXl]="24"
+    [nzXXl]="24"
     nzOrder="2">
     <article nz-typography class="hm-content">
       <h3 style="color: royalblue">Outsourcing for Bank</h3>
