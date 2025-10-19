@@ -93,7 +93,107 @@
           </li>
         </ol>
 
+        <h5 class="fst-italic">6. What is different between websocket and socket.io</h5>
+        <ol>
+          <li>Websocket is the underlying technology - a communication protocol. While Socket.io is a library built on top of Websocket. That makes real-time communication easier and more reliable</li>
+          <li>Websokcet
+            <ol>
+              <li>Sending and receiving raw messages (text, binary)</li>
+              <li>No automatic reconnection, no event system, no fallback</li>
+            </ol>
+          </li>
+          <li>Socket.io. A Javascript library (Nodejs + client-side js)
+            that uses Websocket and other fallback mechanisms (like long-polling) to ensure reliable real-time communication.
+            Adds many features on top of Websocket
+            <ol>
+              <li>Automatic reconnection</li>
+              <li>Event-based communication</li>
+              <li>Rooms</li>
+              <li>Works even when Websocket is blocked (falls back to HTTP long-polling)</li>
+            </ol>
+          </li>
+          <li><span class="text-black">Summary</span>(need to keep in my memmories)
+            <ol>Websocket only has a few built-in events
+              <li>open</li>
+              <li>message</li>
+              <li>error</li>
+              <li>close</li>
+            </ol>
 
+            <ol>Socket.IO has its own event system - you can define named events like chat, userJoined, etc</ol>
+            <div class="d-flex flex-column">
+              <code>
+                socket.on('chat', (data) => &#123; console.log('Chat:', data); &#125;);
+              </code>
+              <code>
+                socket.on('userJoined', (user) => &#123; console.log('User joined:', user); &#125;);
+              </code>
+              <code>
+                socket.emit('chat', &#123; message: 'Hi!' &#125;);
+              </code>
+            </div>
+          </li>
+        </ol>
+
+        <h5>7. Remember to deeply understand custom event names and rooms in Socket.IO</h5>
+        <ul>
+          Event names - <mark>used by both client and server</mark>
+          <li>are always required when sending or listening to messages. (event name = "type of message") </li>
+          <p>Client side</p>
+          <code>
+            socket.on('chat', (data) => console.log('Got chat:', data)); // listen to 'chat' event
+          </code>
+          <p>Server side</p>
+          <code>
+            io.on('connection', (socket) => &#123;
+            socket.on('chat', (data) => &#123;
+            console.log('Received chat:', data);
+            &#125;);
+            &#125;);
+          </code>
+        </ul>
+        <ul>
+          Rooms - <mark>Used only on the server side to group clients</mark>
+          <li>is just a group of connected sockets. I use rooms when I want to send a message to a specific group, not everyone</li>
+          <li>Sending message to specific room: <code>io.to('room1').emit('chat', &#123; text: 'Hello room1!' &#125;);</code></li>
+          <li>Sending to all connected client (including sender) <code>io.emit('chat', data);</code></li>
+          <li>Sending to all connected client except sender <code> socket.broadcast.emit('chat', data);</code></li>
+        </ul>
+      <h5>8. Can Socket.io be used in an Angular application on the client and a Spring Boot application on the server side</h5>
+      <ol>No, because Socket.io was designed for NodeJS and work best there</ol>
+      <ol>If my backend is spring boot, I should use STOMP over Websocket instead. It's the officially supported and fully compatible option</ol>
+      <h5>9. Does the concept of event name like in socket.io exist in STOMP. If not, is there something similar in STOMP?</h5>
+      <p>No, STOMP does not have event names in the same way that Socket.IO does. STOMP replaces event names with the concept of destination (sometimes called endpoints or topics)</p>
+      <ol>
+        <li>
+          <code>
+            // Send message
+            stompClient.send("/app/chat", &#123;&#125;, "Hello!");
+          </code>
+        </li>
+        <li>
+          <code>
+          // Listen for message
+          stompClient.subscribe("/topic/chat", message => console.log(message.body));
+          </code>
+
+        </li>
+        <ul>
+          <li>/app/chat is the destination to send to (server endpoint)</li>
+          <li>/topic/chat is the destination to subscribe to </li>
+        </ul>
+      </ol>
+      <h5>10. Does the concept of room like in socket.io exist in STOMP. If not, is there something similar in STOMP</h5>
+      <ol>In socket.io, A room is like a group of connection clients. The server can send message only to clients in a specific room</ol>
+      <ul>In STOMP
+        <li>There are no rooms, but i can create different destination paths to organize my messages channels</li>
+        <li>Each client chooes which destination (topic or queue) it wants to subscribe to</li>
+        <ul>Some path pattern
+          <li>user/&#123;userId&#125;/queue/...: only one unique user</li>
+          <li>topic/group/&#123;groupId&#125;: all users in group</li>
+          <li>topic/public: All connected user</li>
+        </ul>
+      </ul>
     </article>
   </div>
   <div nz-col
