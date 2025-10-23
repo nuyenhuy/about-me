@@ -247,6 +247,26 @@
           Angular directives to dynamically show or hide component UI based on user access rights..
         </li>
       </ol>
+      <h5>1. Do you know what the difference-between declarative and imperative programming is?</h5>
+      <ul class="fst-italic">Declarative
+        <li>Tell the computer what you want it to do. You describe the desired result, not the process</li>
+      </ul>
+      <pre>
+        <code class="language-js">
+          const adults = users.filter(u => u.age > 18).map(u => u.name);
+        </code>
+      </pre>
+      <ul class="fst-italic">Imperative
+        <li>Tell the computer how to do it step by step. You describe exact steps the computer should follow to achieve a result</li>
+      </ul>
+      <pre>
+        <code class="language-js">
+          const adults = [];
+          for (const u of users) &#123;
+                  if (u.age > 18) adults.push(u.name);
+          &#125;
+        </code>
+      </pre>
     </article>
   </div>
 
